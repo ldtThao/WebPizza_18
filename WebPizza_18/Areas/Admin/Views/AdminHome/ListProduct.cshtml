@@ -1,0 +1,56 @@
+﻿@model IEnumerable<WebPizza_18.Models.Product>
+
+@{
+    ViewBag.Title = "ListProduct";
+}
+
+<h2>Danh sách sản phẩm</h2>
+
+<p>
+    @Html.ActionLink("Tạo sản phẩm", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @ViewData["ProductName"]
+        </th>
+        <th>
+            @ViewData["CategoryName"]
+        </th>
+        <th>
+            @ViewData["Ingredients"]
+        </th>
+        <th>
+            @ViewData["UnitPrice"]
+        </th>
+        <th>
+            @ViewData["Size"]
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.ProductName)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Category.CategoryName)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Ingredients)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.UnitPrice)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Size)
+        </td>
+        <td>
+            @Html.ActionLink("Chỉnh sửa", "Edit", new { id=item.ProductID }) |
+            @Html.ActionLink("Xóa", "Delete", new { id=item.ProductID })
+        </td>
+    </tr>
+}
+
+</table>

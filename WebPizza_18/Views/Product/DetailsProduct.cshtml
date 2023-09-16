@@ -1,0 +1,50 @@
+﻿@model WebPizza_18.Models.Product
+
+@{
+    ViewBag.Title = "DetailsProduct";
+}
+
+@*<h2>Xem Chi Tiết</h2>*@
+
+<div>
+    @*<h4>Product</h4>*@
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @ViewData["ProductName"]
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ProductName)
+        </dd>
+        <dt>
+            @ViewData["Ingredients"]
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Ingredients)
+        </dd>
+
+        <dt>
+            @ViewData["UnitPrice"]
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.UnitPrice)
+        </dd>
+
+        <dt>
+            @ViewData["Size"]
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Size)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @*@Html.ActionLink("Edit", "Edit", new { id = Model.ProductID }) |*@
+    @Html.ActionLink("Quay lại", "DetailsGroup", new { id = Model.ProductID }) |
+    <a href="@Url.Action("AddCart","Cart", new {@id = @Model.ProductID})">Thêm vào giỏ hàng</a>
+</p>

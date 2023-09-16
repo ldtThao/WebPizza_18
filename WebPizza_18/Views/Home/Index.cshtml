@@ -1,0 +1,56 @@
+﻿@model IEnumerable<WebPizza_18.Models.Group>
+
+@{
+    ViewBag.Title = "ListProduct";
+}
+
+<h2>Menu</h2>
+
+<table class="table">
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.GroupName)
+            </td>
+            <td>
+                @*@Html.ActionLink("Mua Ngay", "DetailsGroup", new { id = item.GroupID })*@
+
+                <a href="@Url.Action("DetailsGroup","Product", new { id = item.GroupID})">Mua Ngay</a>
+            </td>
+        </tr>
+    }
+
+</table>
+<section class="ftco-intro">
+    <div class="container-wrap">
+        <div class="wrap d-md-flex">
+            <div class="info">
+                <div class="row no-gutters">
+                    <div class="col-md-4 d-flex ftco-animate">
+                        <div class="icon"><span class="icon-phone"></span></div>
+                        <div class="text">
+                            <h3>000 (123) 456 7890</h3>
+                            <p>Web Pizza 18</p>
+                        </div>
+                    </div>
+                    <div class="col-md-4 d-flex ftco-animate">
+                        <div class="icon"><span class="icon-my_location"></span></div>
+                        <div class="text">
+                            <h3>271 Nguyễn Kiệm</h3>
+                            <p>Đại học Mở TP Hồ Chí Minh</p>
+                        </div>
+                    </div>
+                    <div class="col-md-4 d-flex ftco-animate">
+                        <div class="icon"><span class="icon-clock-o"></span></div>
+                        <div class="text">
+                            <h3>Open Monday-Friday</h3>
+                            <p>8:00am - 9:00pm</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>

@@ -1,0 +1,48 @@
+﻿@model IEnumerable<WebPizza_18.Models.Order>
+
+@{
+    ViewBag.Title = "LOrder";
+}
+
+<h2>Danh sach don hang</h2>
+
+<table class="table">
+    <tr>
+        <th>
+            @ViewData["CustomerID"]
+        </th>
+        <th>
+            @ViewData["EmployeeID"]
+        </th>
+        <th>
+            @ViewData["Create_at"]
+        </th>
+        <th>
+            @ViewData["ShipAddress"]
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.CustomerID)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.EmployeeID)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Create_at)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.ShipAddress)
+        </td>
+        <td>
+            @Html.ActionLink("Chinh sua", "Edit", new { id=item.OrderID }) |
+            @Html.ActionLink("Chi tiet", "Details", new { id=item.OrderID }) |
+            @Html.ActionLink("Xoa", "Delete", new { id=item.OrderID })
+        </td>
+    </tr>
+}
+
+</table>

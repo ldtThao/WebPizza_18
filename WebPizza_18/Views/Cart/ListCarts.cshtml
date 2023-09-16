@@ -1,0 +1,61 @@
+﻿@model IEnumerable<WebPizza_18.Models.CartModel>
+
+@{
+    ViewBag.Title = "ListCarts";
+}
+
+<h2>Giỏ hàng</h2>
+
+<table class="table">
+    <tr>
+        <th>
+            @ViewData["ProductName"]
+        </th>
+        <th>
+            @ViewData["UnitPrice"]
+        </th>
+        <th>
+            @ViewData["Quantity"]
+        </th>
+        <th>
+            @ViewData["Total"]
+        </th>
+        <th></th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            @*<td>
+                    @Html.DisplayFor(modelItem => item.ProductID)
+                </td>*@
+            <td>
+                @Html.DisplayFor(modelItem => item.ProductName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.UnitPrice)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Quantity)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Total)
+            </td>
+            <td>
+                @Html.ActionLink("Xóa", "DeleteProduct", new { id = item.ProductID })
+            </td>
+        </tr>
+    }
+    <tr>
+        <td colspan="2">Số lượng sản phẩm: @ViewBag.CountProduct</td>
+        <td colspan="2">Thành tiền: @ViewBag.Total</td>
+        <td colspan="2">
+            @Html.ActionLink("Đặt hàng", "CreateOrder")
+        </td>
+    </tr>
+
+</table>
+<p>
+    <a href="@Url.Action("Index","Home")">Tiếp tục mua hàng</a>
+</p>
+>

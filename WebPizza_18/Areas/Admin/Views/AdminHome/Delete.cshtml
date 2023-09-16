@@ -1,0 +1,56 @@
+﻿@model WebPizza_18.Models.Product
+
+@{
+    ViewBag.Title = "Delete";
+}
+
+<h2>Xoa san pham</h2>
+
+<h3>Are you sure you want to delete this?</h3>
+<div>
+    <h4>San pham</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @ViewData["ProductName"]
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ProductName)
+        </dd>
+
+        <dt>
+            @ViewData["Ingredients"]
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Ingredients)
+        </dd>
+
+        <dt>
+            @ViewData["UnitPrice"]
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.UnitPrice)
+        </dd>
+
+        <dt>
+            @ViewData["Size"]
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Size)
+        </dd>
+
+    </dl>
+
+    @using (Html.BeginForm()) {
+        @Html.AntiForgeryToken()
+
+        <div class="form-actions no-color">
+            <input type="submit" value="Xoa" class="btn btn-default" /> |
+            @Html.ActionLink("Quay lai", "ListProduct")
+        </div>
+    }
+</div>

@@ -1,0 +1,20 @@
+﻿@model List<WebPizza_18.Models.TopProducts>
+@{
+    ViewBag.Title = "TopProducts";
+}
+
+<table>
+    <thead>
+        <tr>
+            <h2>Top 10 sản phẩm bán chạy nhất </h2>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var product in Model)
+        {
+            <tr>
+                <td>@product.ProductName</td>
+            </tr>
+        }
+    </tbody>
+</table>
